@@ -1,13 +1,20 @@
-import { defineConfig } from 'vite'
+import { resolve } from 'node:path'
 import Vue from '@vitejs/plugin-vue'
-import VueRouter from 'unplugin-vue-router/vite'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-import UnoCSS from 'unocss/vite'
+import VueRouter from 'unplugin-vue-router/vite'
+import { defineConfig } from 'vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, './src'),
+      '@': resolve(__dirname, './src'),
+    },
+  },
   plugins: [
     VueRouter(),
     Vue(),
